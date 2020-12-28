@@ -4,6 +4,10 @@
 
 [[ $- != *i* ]] && return
 
+for x in .{bash_prompt,aliases,functions}; do
+	[ -r $x ] && source $x
+done
+
 colors() {
 	local fgc bgc vals seq0
 
@@ -143,15 +147,15 @@ ex ()
 }
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="/home/jay/.sdkman"
-[[ -s "/home/jay/.sdkman/bin/sdkman-init.sh" ]] && source "/home/jay/.sdkman/bin/sdkman-init.sh"
-[[ -d "/home/jay/.yarn/bin" ]] && export PATH=/home/jay/.yarn/bin:$PATH
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+[[ -d "$HOME/.yarn/bin" ]] && export PATH=$HOME/.yarn/bin:$PATH
 
 export EDITOR=vim
 
 set -o vi
 
-alias py3="export PATH=/home/jay/lib/anaconda3/bin:$PATH"
+alias py3="export PATH=$HOME/lib/anaconda3/bin:$PATH"
 
 # export NVM_DIR="$HOME/.nvm"
 # [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
