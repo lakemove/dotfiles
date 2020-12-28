@@ -1,0 +1,7 @@
+#!/bin/bash
+
+cat <<EOF | rofi -dmenu | bash
+chromium --proxy-server=localhost:3128
+code ~/Projects/site1
+idea ~/Projects/strata
+EOF
