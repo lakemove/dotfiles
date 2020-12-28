@@ -1,0 +1,4 @@
+.rsync-excludes
+README.md
+bootstrap.sh
+.git
